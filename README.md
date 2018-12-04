@@ -37,7 +37,7 @@ export class AppModule { }
 ```
 
 ## Use the service in your component
-Use the service NgxRouteInfoService in the component where you want to get the route information
+Use the service NgxRouteInfoService in the component where you want to get the route information. For instance, navigating to the CarComponent with the url /buy/bmw/white?year=2018 
 ```ts
 export class CarComponent implements OnInit {
 
@@ -54,7 +54,11 @@ export class CarComponent implements OnInit {
   ngOnInit(): void {
     this.ngxRouteInfo.getParams(this.activatedRoute, this);
     this.ngxRouteInfo.getQueryParams(this.activatedRoute, this);
+
+    console.log(this.brand) // bmw
+    console.log(this.color) // white
+    console.log(this.year) // 2018
   }
 }
 ```
-Once the component it's instantiated and initialiated, you'll get the value of the params and queryParams in the class attributes automatically
+Once the component is instantiated and initialiazed, you'll get all the params and query params values of the whole url automatically in the class attributes 
